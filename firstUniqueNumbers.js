@@ -48,26 +48,28 @@ each element of array A is an integer within the range [0..1,000,000,000].*/
 // console.log('this is a debug message');
 
 function solution(A) {
-    // write your code in JavaScript (Node.js 8.9.4)
-    if ( A.length == 1 ) {
-      return A[0];
-    } else {
-      let uniqueNumbers = null;
-      let Array = [ ...new Set(A)];    
-      if ( Array.length != A.length ) {
-        let duplicatedNumbers = A.filter((element, index) => {
-            return A.indexOf(element) !== index;
-        });
-        Array.every(number => {
-          if ( !duplicatedNumbers.includes(number) ) {
-            uniqueNumbers = number;
-            return false;
-          } else return true;
-        });
-      }
+  // write your code in JavaScript (Node.js 8.9.4)
+  if ( A.length == 1 ) {
+    return A[0];
+  } else {
+    let uniqueNumbers = null;
+    let Array = [ ...new Set(A)];    
+    if ( Array.length != A.length ) {
+      let duplicatedNumbers = A.filter((element, index) => {
+          return A.indexOf(element) !== index;
+      });
+      Array.every(number => {
+        if ( !duplicatedNumbers.includes(number) ) {
+          uniqueNumbers = number;
+          return false;
+        } else return true;
+      });
       return (uniqueNumbers ? uniqueNumbers : -1);
+    }else {
+      return A[0];
     }
+  }
 }
 
-console.log(solution([4,10,5,4,2,10]));
-console.log(solution([6,4,4,6]));
+console.log(solution([1,2,3,4]));
+// console.log(solution([6,4,4,6]));
