@@ -55,9 +55,9 @@ function solution(A) {
     let uniqueNumbers = null;
     let Array = [ ...new Set(A)];    
     if ( Array.length != A.length ) {
-      let duplicatedNumbers = A.filter((element, index) => {
-          return A.indexOf(element) !== index;
-      });
+      let map = new Map();
+      A.forEach(a => map.set(a, (map.get(a) || 0) + 1));
+      let duplicatedNumbers = A.filter(a => map.get(a) > 1);
       Array.every(number => {
         if ( !duplicatedNumbers.includes(number) ) {
           uniqueNumbers = number;
@@ -71,5 +71,16 @@ function solution(A) {
   }
 }
 
+
+let arrayNumber = [];
+for (let index = 0; index < 100000; index++) {
+  arrayNumber.push(parseInt(Math.random() * (100000 - 1) + 1));
+}
+
+console.time('solution arrayNumber');
+console.log(solution(arrayNumber));
+console.timeEnd('solution arrayNumber') ;
+console.log(solution([4,10,5,4,2,10]));
+console.log(solution([6,4,4,6]));
 console.log(solution([1,2,3,4]));
-// console.log(solution([6,4,4,6]));
+console.log(solution([1,4,3,3,1,2]));
