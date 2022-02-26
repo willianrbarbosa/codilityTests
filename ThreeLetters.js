@@ -63,10 +63,10 @@ function solution(A, B) {
     }
 }
 
-// console.log(solution(5,3));
-// console.log(solution(3,3));
-// console.log(solution(10,7));
-// console.log(solution(1,4));
+console.log(solution(5,3));
+console.log(solution(3,3));
+console.log(solution(10,7));
+console.log(solution(1,4));
 console.log(solution(8,4));
 console.log(solution(4,8));
 console.log(solution(2,6));
